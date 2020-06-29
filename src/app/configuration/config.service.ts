@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Configuration } from '../model/config-model';
+import { Configuration } from '../models/config-model';
 
 @Injectable()
 export class ConfigService {

@@ -5,7 +5,7 @@ import { NgModule, Component } from '@angular/core';
 import { AppComponent } from './app.component';
 import {SoniatComponent} from './components/soniat/soniat.component';
 import {MessageComponent} from './components/message/message.component';
-import {ApiService} from './core/api.service';
+import {ApiService} from './services/api.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {routing} from './app.routing';
@@ -13,12 +13,15 @@ import { FormsModule } from '@angular/forms';
 import { ConfigService } from './configuration/config.service';
 import { environment } from '../environments/environment';
 import { InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { LoginComponent } from './components/login/login.component';
+import { interceptorProvider } from './components/interceptors/interceptor.service';
   
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     SoniatComponent,
     MessageComponent
   ],
@@ -30,6 +33,8 @@ import { InfiniteScrollModule} from 'ngx-infinite-scroll';
     FormsModule,
     HttpModule,
     InfiniteScrollModule,
+   
+   
   ],
   providers: [
     ConfigService,
@@ -39,7 +44,8 @@ import { InfiniteScrollModule} from 'ngx-infinite-scroll';
       deps      : [ConfigService],
       multi     : true
     },
-    ApiService],
+    ApiService,interceptorProvider],
+   
     bootstrap: [AppComponent]
   })
 export class AppModule { }

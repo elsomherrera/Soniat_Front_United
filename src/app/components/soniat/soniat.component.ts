@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from '../../core/api.service';
+import { ApiService } from '../../services/api.service';
 import Message from '../message/message';
 import { AfterViewInit, AfterViewChecked, ElementRef } from '@angular/core';
 
@@ -30,6 +30,10 @@ export class SoniatComponent implements OnInit, AfterViewInit, AfterViewChecked 
       message: ['', Validators.required]
     })
     this.saveMessage("Hola me llamo SONIAT y seré tu asesor tecnológico durante la consulta, por favor coméntame ¿De que país nos escribes?",false)
+
+
+
+
   }
   ngAfterViewInit(){
     this.scrollToBottom();

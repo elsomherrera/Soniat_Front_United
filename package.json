@@ -25,6 +25,7 @@
     "@types/mocha": "^7.0.2",
     "ajv": "^6.10.2",
     "angular-cli-ghpages": "^0.6.2",
+    "bootstrap": "^4.5.0",
     "core-js": "^2.6.10",
     "jquery": "^3.4.1",
     "ngx-infinite-scroll": "^8.0.1",
