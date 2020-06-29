@@ -9,6 +9,7 @@
                     <ng-container *ngFor="let message of messages">
                         <app-message [messageInput]='message'></app-message>
                     </ng-container>
+                    <p class="men">{{this.writes}}</p>
             </div>
             <footer>
                 <form [formGroup]="soniatForm" (ngSubmit)="onSubmit()"> 

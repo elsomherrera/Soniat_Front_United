@@ -163,3 +163,9 @@ and (-webkit-min-device-pixel-ratio: 2){
       top: 67%;
     }
 }
+
+.men{
+  font-size: 15px;
+  color: #006595;
+  
+  }

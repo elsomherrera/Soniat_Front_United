@@ -22,6 +22,7 @@ export class SoniatComponent implements OnInit, AfterViewInit, AfterViewChecked 
   soniatForm: FormGroup;
   messages: Message[] = [];
   mostrar: boolean = false;
+  writes: String;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { };
 
@@ -59,13 +60,20 @@ export class SoniatComponent implements OnInit, AfterViewInit, AfterViewChecked 
       this.saveMessage(question, true);
       this.apiService.extractToken().subscribe((data: String) => {
         //el subscribe tiene varias funciones (success, error)
-        this.apiService.getAnswer(question, data).subscribe((response: String) => {
-          this.saveMessage(response, false); 
-        }, error => {
-          console.log(error);
-        })
-      }, error => {
-        console.log(error);
+
+        setTimeout( ()=>{
+          this.mostrarEscribiendo();
+          },1000);
+ 
+          setTimeout( ()=>{
+           this.borrarEscribiendo(false);
+          
+         this.apiService.getAnswer(question, data).subscribe((response: String) => {
+           this.saveMessage(response, false); 
+         }, error => {
+         })
+      },3000);
+      }, error =>{
       });
     }
   }
@@ -78,4 +86,19 @@ export class SoniatComponent implements OnInit, AfterViewInit, AfterViewChecked 
   toggleBox() {
     this.mostrar = !this.mostrar;
   } 
+
+  mostrarEscribiendo(){
+    this.writes = 'escribiendo...';
+  }
+  borrarEscribiendo(mostrar: boolean){
+    if(mostrar===false){
+      delete this.writes;
+    }
+    return true;
+  }
+  
+
+
 }
+
+
