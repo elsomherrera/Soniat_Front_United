@@ -1,14 +1,14 @@
 import { APP_INITIALIZER } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {SoniatComponent} from './components/soniat/soniat.component';
 import {MessageComponent} from './components/message/message.component';
 import {ApiService} from './services/api.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
-import {routing} from './app.routing';
+import {AppRoutingModule} from './app.routing.module';
 import { FormsModule } from '@angular/forms';
 import { ConfigService } from './configuration/config.service';
 import { environment } from '../environments/environment';
@@ -27,7 +27,7 @@ import { interceptorProvider } from './components/interceptors/interceptor.servi
   ],
   imports: [
     BrowserModule,
-    routing,
+    AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,

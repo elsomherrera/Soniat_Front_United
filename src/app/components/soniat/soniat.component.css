@@ -16,6 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 105%;
 }
 #chatbot{   
     width: 90%;
@@ -49,6 +50,7 @@
     margin-right: 15px;
     height: 5%;
     background-color: var(--fuenteEnviado);
+    cursor:pointer;
 } 
 #chatbotmessage{
     grid-area:chatbody;
@@ -58,7 +60,6 @@
     overflow: auto;
     resize: none;
     padding: 1rem;
-    scroll-behavior: smooth;
 }
 #chatbot > footer{
     grid-area:textinput;
@@ -72,20 +73,51 @@
     outline: 0;
     border: 0;
     background-color: transparent;
+    width: 80%;
+    cursor:pointer;
 }
 #btn{
     color: var(--headerBtn);
-    padding-left: 50px;
     background: transparent;
     border: 0;
+    cursor:pointer;
 }
 .fa-2x {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 .img_size{
-    width: 50%;
-    height: 50%;
-    padding-top: 65%;
+  height: 30%;
+  margin-top: 75%;
+  margin-left: 80%;
+}
+.filter{
+  cursor:pointer;
+  text-align: center;
+  border-radius: 1rem;
+  outline: 0;
+  border: 0;
+  width: 15%;
+  right:0px;
+  z-index:1000;
+  padding:8px 12px;   
+  margin-right: -40%;
+}   
+.filter:focus {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+  padding: 5px 5px;
+  width:55%;
+  margin-right:0;
+} 
+.search{
+align-items: flex-end;
+}
+.men{
+  font-size: 13px;
+  color:var(--headerBtn);
 }
 @media only screen and (min-device-width: 320px) 
 and (max-device-width: 340px) 
@@ -94,78 +126,79 @@ and (-webkit-min-device-pixel-ratio: 2){
     grid-template-columns: 1fr ;
     grid-template-rows: 1fr ;
     grid-template-areas:"chatarea";
-  }
-  #footer{
-    padding: 5px !important;
-    top: 50% !important;
-  }
-  #btn{
-      color: var(--headerBtn);
-      padding-left: 10px;
-      background: transparent;
-      border: 0;
+    width: 100%;
   }
   #chatbot{   
-      width: 75%;
-      height: 95%;
+    width: 75%;
+    height: 95%;
   }
+  .img_size{
+    margin-left: 50%;
+  }  
+  .filter{
+  margin-right: -20%;
+  width: 20%;
+  }
+  .filter:focus {
+    width:45%;   
+  } 
 }
 @media only screen and (min-device-width: 350px) 
-and (max-device-width: 370px) 
+and (max-device-width: 375px) 
 and (-webkit-min-device-pixel-ratio: 2){
   #chatbotarea{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas:"chatarea";
+    width: 107%;
   }
   #chatbot{   
       width: 75%;
       height: 95%;
   }
-  #footer{
-    padding: 5px !important;
-    top: 70% !important;
+  .img_size{
+    margin-left: 60%;
   }
-  #btn{
-      color: var(--headerBtn);
-      padding-left: 20px;
-      background: transparent;
-      border: 0;
+  .filter{
+    margin-right: -30%;
+  }   
+  .filter:focus {
+    width:55%;
+  } 
+}
+@media only screen and (min-device-width: 376px) 
+and (max-device-width: 420px) 
+and (-webkit-min-device-pixel-ratio: 2){
+  chatbotarea{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"chatarea";
+    width: 110%;
+  }
+  .img_size{
+    margin-left: 80%;
   }
 }
-@media only screen and (min-device-width: 375px) 
-and (max-device-width: 667px) 
+@media only screen and (min-device-width: 376px) 
+and (max-device-width: 420px) 
+and (-webkit-min-device-pixel-ratio: 2){
+  #chatbotarea{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"chatarea";
+    width: 120%;
+  }
+  .img_size{
+    margin-top: 65%;
+    margin-left: 70%;
+  } 
+}
+@media only screen and (min-device-width: 700px) 
+and (max-device-width: 768px) 
 and (-webkit-min-device-pixel-ratio: 2){
   #chatbotarea{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas:"chatarea";
   }
-  #footer{
-    padding: 5px !important;
-    top: 80% !important;
-  }
-  /* #btn{
-    color: #006595;
-    padding-left: 20px;
-    background: transparent;
-    border: 0;
-  }   */
 }
-@media only screen and (max-device-width: 700px){
-  #chatbotarea{
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:"chatarea";
-  }
-  #footer{
-      padding: 5px;
-      top: 67%;
-    }
-}
-
-.men{
-  font-size: 15px;
-  color: #006595;
-  
-  }

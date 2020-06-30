@@ -2,26 +2,26 @@
     <div id="chatbotarea">
         <div id="chatbot" *ngIf="mostrar">
             <header id="chatbothead">
-                <p>SONIAT </p>        
+                <p>SONIAT </p>    
+                <input  class="filter"  name="filterSearch" placeholder="Buscar"  type="text" [(ngModel)]="filterSearch" (ngModelChange)="filterChanged($event)"/>  
                 <span id="minim_chat_window" class="icon_minim" (click)="toggleBox()"></span> 
             </header>
-            <div id="chatbotmessage" #box>
-                    <ng-container *ngFor="let message of messages">
-                        <app-message [messageInput]='message'></app-message>
-                    </ng-container>
-                    <p class="men">{{this.writes}}</p>
+            <div id="chatbotmessage" #scroll>
+                <ng-container *ngFor="let message of messages">
+                    <app-message [messageInput]='message'></app-message>
+                </ng-container> 
+                <p class="men">{{this.writes}}</p>
             </div>
             <footer>
                 <form [formGroup]="soniatForm" (ngSubmit)="onSubmit()"> 
-                    <input id="input" type="text" formControlName="message" placeholder="Escribe aquí..." #chat #input>
+                    <input id="input" type="text" formControlName="message" placeholder="Escribe aquí..." autofocus #resetset>
                     <button id="btn" type="submit" (click)="reset()" > &nbsp; <em class="fa fa-paper-plane fa-2x" ></em> &nbsp; </button>
                 </form>
             </footer>
         </div>
         <img id="ocultar" class="img_size" src="assets/img/soniat.gif"  alt="" *ngIf="!mostrar" (click)="toggleBox()"> 
     </div>
-<a [routerLink]="['/login']" >Login</a>
-
+    <a [routerLink]="['/login']">Login</a>
 </div>
 
 

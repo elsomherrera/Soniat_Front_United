@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import {SoniatComponent} from './components/soniat/soniat.component';
 import { LoginComponent } from './components/login/login.component';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   { path: 'soniat', component: SoniatComponent },
@@ -9,4 +10,9 @@ const routes: Routes = [
   {path: '**', redirectTo: 'soniat', pathMatch: 'full'}
 ];
 
-export const routing = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+
+export class AppRoutingModule {}
