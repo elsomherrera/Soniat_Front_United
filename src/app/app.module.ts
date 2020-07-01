@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { LoginComponent } from './components/login/login.component';
 import { interceptorProvider } from './components/interceptors/interceptor.service';
+import { ClientesComponent } from './components/clientes/clientes.component';
   
 
 
@@ -23,7 +24,8 @@ import { interceptorProvider } from './components/interceptors/interceptor.servi
     AppComponent,
     LoginComponent,
     SoniatComponent,
-    MessageComponent
+    MessageComponent,
+    ClientesComponent,
   ],
   imports: [
     BrowserModule,

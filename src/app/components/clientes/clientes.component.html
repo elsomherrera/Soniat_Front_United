@@ -1,0 +1,74 @@
+<head>
+    <meta charset="utf-8">
+    <title>Clientes</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    </head>
+    
+    <a [routerLink]="['/soniat']" >Soniat</a>
+    <div class="chatbox chatbox--tray chatbox--empty">
+        <div class="chatbox__title">
+            <h5><a href="#">Soniat</a></h5>
+            <button class="chatbox__title__tray">
+                <span></span>
+            </button>
+            <button class="chatbox__title__close">
+                <span>
+                    <svg viewBox="0 0 12 12" width="12px" height="12px">
+                        <line stroke="#FFFFFF" x1="11.75" y1="0.25" x2="0.25" y2="11.75"></line>
+                        <line stroke="#FFFFFF" x1="11.75" y1="11.75" x2="0.25" y2="0.25"></line>
+                    </svg>
+                </span>
+            </button>
+        </div>
+        
+        <form class="chatbox__credentials">
+            <div class="form-group">
+                <p>Hola soy Soniat, si estas interesado/a sobre nuestros servicios, indicanos de donde 
+                    nos escbribes y tu correo electronico, para enviarte la información necesaria.
+                </p>
+                <label for="inputName">País:</label>
+                <select class="form-control" name="listaActividad" required>
+                    <option value=''>Seleccionar...</option>              
+                 </select>
+                 
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">Correo electronico:</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Enviar</button>
+        </form>
+        
+    </div>
+    <script>
+        (function($) {
+    $(document).ready(function() {
+        var $chatbox = $('.chatbox'),
+            $chatboxTitle = $('.chatbox__title'),
+            $chatboxTitleClose = $('.chatbox__title__close'),
+            $chatboxCredentials = $('.chatbox__credentials');
+        $chatboxTitle.on('click', function() {
+            $chatbox.toggleClass('chatbox--tray');
+        });
+        $chatboxTitleClose.on('click', function(e) {
+            e.stopPropagation();
+            $chatbox.addClass('chatbox--closed');
+        });
+        $chatbox.on('transitionend', function() {
+            if ($chatbox.hasClass('chatbox--closed')) $chatbox.remove();
+        });
+        $chatboxCredentials.on('submit', function(e) {
+            e.preventDefault();
+            $chatbox.removeClass('chatbox--empty');
+        });
+    });
+})(jQuery);
+    </script>
